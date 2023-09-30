@@ -4,7 +4,7 @@ class Conta:
         self.saldo = saldo + 100
         self.limite = 100
         self.lista_extrato = []
-        #self.lista_extrato.append('+' + str(saldo))
+        
     def getNumero(self):
         return self.numero
 
@@ -14,7 +14,7 @@ class Conta:
     def getLimite(self):
         return self.limite
 
-    def sacar(self, valor: float):
+    def sacar(self, valor: float): #Ao sacar um valor o limite da conta deve ser considerado
         if self.saldo - valor < 0 or valor < 0 or len(self.lista_extrato) >= 10:
           return False
         else:
@@ -24,7 +24,7 @@ class Conta:
 
     def depositar(self, valor: float):
         print(len(self.verExtrato()))
-        if valor <= 0 or len(self.lista_extrato) >= 10:
+        if valor <= 0 or len(self.lista_extrato) >= 10:   #Depositar valores nao negativos deve ser permitido
             return False
         else:
             self.saldo += valor
